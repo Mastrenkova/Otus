@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class HomeWork3_test_ {
 	public static void main(String[] args) {
-		// Переменные для хранения количества правильных и неправильных ответов
+
 		int correctCount = 0, wrongCount = 0;
 
 		String[] questions = new String[4];
@@ -10,11 +10,6 @@ public class HomeWork3_test_ {
 		questions[1] = "2. С какой целью выполняют разделку кромок?";
 		questions[2] = "3. В каком порядке проводится аттестация сварщиков?";
 		questions[3] = "4. При выполнении ручной дуговой сварки непровары возникают из-за:";
-
-		// напечатали первый вопрос
-		for (int i = 0; i < 1; i++) {
-			System.out.println(questions[i]);
-		}
 
 		String[][] answerOptions = new String[4][3];
 		answerOptions[0][0] = "1) Свойствами металла шва, линии сплавления с основным металлом и зоны термического влияния;";
@@ -30,94 +25,32 @@ public class HomeWork3_test_ {
 		answerOptions[3][1] = "2) Малой скорости выполнения работ, чрезмерно большой силы сварочного тока;";
 		answerOptions[3][2] = "3) Неправильного подбора электродов, чрезмерно большой силы сварочного тока;";
 
-		// напечатали варианты ответов
-		for (int i = 0; i < 1; i++) {
-			for (int j = 0; j < 3; j++) {
-				System.out.println(answerOptions[i][j]);
-			}
-		}
-		
-		// вывод ответа и подсчет правильны/неправильных
-		Scanner answer = new Scanner(System.in);
-		int number = answer.nextInt();
-		System.out.println("Ваш ответ:" + " " + number);
-		if (number == 1) {
-			correctCount = correctCount + 1;
-			System.out.println("Правильно");
-		} else {
-			wrongCount = wrongCount + 1;
-			System.out.println("Неправильно");
-		}
-		
+		int[] correctAnswer = new int[4];
+		correctAnswer[0] = 1;
+		correctAnswer[1] = 3;
+		correctAnswer[2] = 3;
+		correctAnswer[3] = 1;
 
-		// цикл по второму вопросу
-		for (int i = 1; i < 2; i++) {
+		for (int i = 0; i < 4; i++) {
 			System.out.println(questions[i]);
-		}
-		for (int i = 1; i < 2; i++) {
 			for (int j = 0; j < 3; j++) {
 				System.out.println(answerOptions[i][j]);
 			}
-		}
-		
 
-		Scanner answer1 = new Scanner(System.in);
-		int number1 = answer1.nextInt();
-		System.out.println("Ваш ответ:" + " " + number1);
-		if (number1 == 3) {
-			correctCount = correctCount + 1;
-			System.out.println("Правильно");
-		} else {
-			wrongCount = wrongCount + 1;
-			System.out.println("Неправильно");
-		}
+			Scanner answer = new Scanner(System.in);
+			int number = answer.nextInt();
+			System.out.println("Ваш ответ" + " " + number);
 
-		// цикл по третьему вопросу:
-		for (int i = 2; i < 3; i++) {
-			System.out.println(questions[i]);
-		}
-		for (int i = 2; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				System.out.println(answerOptions[i][j]);
+			if (number != correctAnswer[i]) {
+				wrongCount = wrongCount + 1;
+				System.out.println("Неправильно");
+			} else {
+				correctCount = correctCount + 1;
+				System.out.println("Правильно");
 			}
+
 		}
 
-		Scanner answer2 = new Scanner(System.in);
-		int number2 = answer2.nextInt();
-		System.out.println("Ваш ответ:" + " " + number2);
-
-		if (number2 == 3) {
-			correctCount = correctCount + 1;
-			System.out.println("Правильно");
-		} else {
-			wrongCount = wrongCount + 1;
-			System.out.println("Неправильно");
-		}
-
-		// цикл по 4-му вопросу:
-		for (int i = 3; i < 4; i++) {
-			System.out.println(questions[i]);
-		}
-		for (int i = 3; i < 4; i++) {
-			for (int j = 0; j < 3; j++) {
-				System.out.println(answerOptions[i][j]);
-			}
-		}
-
-		Scanner answer3 = new Scanner(System.in);
-		int number3 = answer3.nextInt();
-		System.out.println("Ваш ответ:" + " " + number3);
-
-		if (number3 == 3) {
-			correctCount = correctCount + 1;
-			System.out.println("Правильно");
-		} else {
-			wrongCount = wrongCount + 1;
-			System.out.println("Неправильно");
-		}
-
-		System.out.println("Результат: правильно" + correctCount + ", неправильно:" + wrongCount);
-
+		System.out.println("Правильно:" + correctCount + ", Неправильно:" + wrongCount);
 	}
-
 }
